@@ -110,13 +110,7 @@ namespace ControleMedicamentos.ConsoleApp
                     tela.Excluir();
 
                 else if (operacaoEscolhida == '4')
-                    tela.VisualizarRegistros(true);
-
-                //else if (operacaoEscolhida == '5')
-                //    tela.VisualizarRegistros(true);
-
-                //else if (operacaoEscolhida == '6')
-                //    tela.VisualizarRegistros(true);
+                    tela.VisualizarRegistros(true);               
             }
 
             Console.ReadLine();
