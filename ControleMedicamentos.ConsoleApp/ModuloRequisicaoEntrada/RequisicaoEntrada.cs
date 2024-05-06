@@ -2,12 +2,6 @@
 using ControleMedicamentos.ConsoleApp.Modulo_fornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
-using ControleMedicamentos.ConsoleApp.ModuloPaciente;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaosaida
 {

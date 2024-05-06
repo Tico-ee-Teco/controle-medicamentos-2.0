@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Modulo_fornecedor;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -50,6 +51,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             Funcionario funcionario = new Funcionario(nome, telefone, cpf);
 
             return funcionario;
+        }
+
+        public void CadastrarFuncionarioTeste()
+        {
+            Funcionario funcionario = new Funcionario("João ", "999440807", "111222333-44");
+
+            repositorio.Cadastrar(funcionario);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Modulo_fornecedor;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
@@ -52,11 +53,15 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             Console.Write("Digite a data de validade: ");
             DateTime dataValidade = Convert.ToDateTime(Console.ReadLine());
 
-            Medicamento medicamento = new Medicamento(nome, descricao, lote, dataValidade);
-
-           
+            Medicamento medicamento = new Medicamento(nome, descricao, lote, dataValidade);           
 
             return medicamento;
+        }
+
+        public void CadastrarMedicamentoTeste()
+        {
+            Medicamento medicamento = new Medicamento("Dipirona", "Cura tudo", "AXR567", DateTime.Now);
+            repositorio.Cadastrar(medicamento);
         }
     }
 }

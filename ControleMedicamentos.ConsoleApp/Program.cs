@@ -25,11 +25,13 @@ namespace ControleMedicamentos.ConsoleApp
             telaMedicamento.repositorio = repositorioMedicamento;
             telaMedicamento.tipoEntidade = "Medicamento";
 
+            telaMedicamento.CadastrarMedicamentoTeste();
+
             RepositorioRequisicaoSaida repositorioRequisicaoSaida = new RepositorioRequisicaoSaida();
 
             TelaRequisicaoSaida telaRequisicaoSaida = new TelaRequisicaoSaida();
             telaRequisicaoSaida.repositorio = repositorioRequisicaoSaida;
-            telaRequisicaoSaida.tipoEntidade = "Requisição";
+            telaRequisicaoSaida.tipoEntidade = "Requisição Saida";
 
             telaRequisicaoSaida.telaPaciente = telaPaciente;
             telaRequisicaoSaida.telaMedicamento = telaMedicamento;
@@ -40,17 +42,30 @@ namespace ControleMedicamentos.ConsoleApp
             RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
             TelaFuncionario telaFuncionario = new TelaFuncionario();
             telaFuncionario.repositorio = repositorioFuncionario;
-            telaFuncionario.tipoEntidade = "Funcionario";     
-            
-            Repositoriofornecedor repositoriofornecedor = new Repositoriofornecedor();
-            Teladofornecedor teladofornecedor = new Teladofornecedor();
-            teladofornecedor.repositorio = repositoriofornecedor;
-            teladofornecedor.tipoEntidade = "Fornecedor";
+            telaFuncionario.tipoEntidade = "Funcionario";
+
+            telaFuncionario.CadastrarFuncionarioTeste();
+
+            Repositoriofornecedor repositorioFornecedor = new Repositoriofornecedor();
+            TeladoFornecedor teladoFornecedor = new TeladoFornecedor();
+            teladoFornecedor.repositorio = repositorioFornecedor;
+            teladoFornecedor.tipoEntidade = "Fornecedor";
+
+            teladoFornecedor.CadastrarFornecedorTeste();
 
             RepositorioRequisicaoEntrada repositorioRequisicaoEntrada = new RepositorioRequisicaoEntrada();
+
             TelaRequisicaoEntrada telaRequisicaoEntrada = new TelaRequisicaoEntrada();
             telaRequisicaoEntrada.repositorio = repositorioRequisicaoEntrada;
             telaRequisicaoEntrada.tipoEntidade = "Requisiçao entrada";
+
+            telaRequisicaoEntrada.telaMedicamento = telaMedicamento;
+            telaRequisicaoEntrada.teladoFornecedor = teladoFornecedor;
+            telaRequisicaoEntrada.telaFuncionario = telaFuncionario;
+
+            telaRequisicaoEntrada.repositorioMedicamento = repositorioMedicamento;
+            telaRequisicaoEntrada.repositorioFornecedor = repositorioFornecedor;
+            telaRequisicaoEntrada.repositorioFuncionario = repositorioFuncionario;
 
             while (true)
             {
@@ -74,7 +89,7 @@ namespace ControleMedicamentos.ConsoleApp
                     tela = telaFuncionario;
 
                 else if (opcaoPrincipalEscolhida == '5')
-                    tela = teladofornecedor;
+                    tela = teladoFornecedor;
 
                 else if (opcaoPrincipalEscolhida == '6')
                     tela = telaRequisicaoEntrada;
@@ -97,11 +112,11 @@ namespace ControleMedicamentos.ConsoleApp
                 else if (operacaoEscolhida == '4')
                     tela.VisualizarRegistros(true);
 
-                else if (operacaoEscolhida == '5')
-                    tela.VisualizarRegistros(true);
+                //else if (operacaoEscolhida == '5')
+                //    tela.VisualizarRegistros(true);
 
-                else if (operacaoEscolhida == '6')
-                    tela.VisualizarRegistros(true);
+                //else if (operacaoEscolhida == '6')
+                //    tela.VisualizarRegistros(true);
             }
 
             Console.ReadLine();

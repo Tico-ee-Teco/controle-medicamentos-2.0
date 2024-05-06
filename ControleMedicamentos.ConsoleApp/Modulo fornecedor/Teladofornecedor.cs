@@ -1,14 +1,8 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
-using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleMedicamentos.ConsoleApp.Modulo_fornecedor
 {
-    internal class Teladofornecedor : TelaBase
+    internal class TeladoFornecedor : TelaBase
     {
         public override void VisualizarRegistros(bool exibirTitulo)
         {
@@ -56,6 +50,12 @@ namespace ControleMedicamentos.ConsoleApp.Modulo_fornecedor
             Fornecedor fornecedor = new Fornecedor(nome, telefone, Cnpj);
 
             return fornecedor ;
+        }
+
+        public void CadastrarFornecedorTeste()
+        {
+            Fornecedor fornecedor = new Fornecedor("Veloz", "999440807", "11222333/0004-55");
+            repositorio.Cadastrar(fornecedor);
         }
     }
 }

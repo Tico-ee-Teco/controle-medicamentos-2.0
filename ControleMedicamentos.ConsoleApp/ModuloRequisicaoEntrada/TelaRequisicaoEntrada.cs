@@ -2,26 +2,17 @@
 using ControleMedicamentos.ConsoleApp.Modulo_fornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
-using ControleMedicamentos.ConsoleApp.ModuloPaciente;
-using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicaosaida;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 {
     internal class TelaRequisicaoEntrada : TelaBase
     {
-
-
-        public Teladofornecedor teladofornecedor = null;
+        public TeladoFornecedor teladoFornecedor = null;
         public TelaMedicamento telaMedicamento = null;
         public TelaFuncionario telaFuncionario = null;
 
-        public Repositoriofornecedor repositoriofornecedor = null;
+        public Repositoriofornecedor repositorioFornecedor = null;
         public RepositorioMedicamento repositorioMedicamento = null;
         public RepositorioFuncionario repositorioFuncionario = null;
 
@@ -93,11 +84,6 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 
         protected override EntidadeBase ObterRegistro()
         {
-
-            //Erro na linha 101, e um erro de NULL em que o telamedicamentos nao esta sendo inicializado.
-
-            //passei algumas horas tentando resolver porem quando eu resolvia o problema de null da linha 101 o erro ia pro modulo de medicamentos, ou pra requisicao de entrada.
-
             telaMedicamento.VisualizarRegistros(false);
 
             Console.Write("Digite o ID do medicamento Que quer pedir: ");
@@ -105,25 +91,25 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 
             Medicamento medicamentoSelecionado = (Medicamento)repositorioMedicamento.SelecionarPorId(idMedicamento);
 
-            teladofornecedor.VisualizarRegistros(false);
+            teladoFornecedor.VisualizarRegistros(false);
             
-            Console.Write("Digite o ID do Fornecedor:");
+            Console.Write("Digite o ID do Fornecedor: ");
             int idFornecedor = Convert.ToInt32(Console.ReadLine());
 
-            Fornecedor fornecedorselecionado = (Fornecedor)repositoriofornecedor.SelecionarPorId(idFornecedor);
+            Fornecedor fornecedorSelecionado = (Fornecedor)repositorioFornecedor.SelecionarPorId(idFornecedor);
 
             telaFuncionario.VisualizarRegistros(false);
 
-            Console.Write("Digite o ID do Funcionario");
+            Console.Write("Digite o ID do Funcionario: ");
             int idfuncionario = Convert.ToInt32(Console.ReadLine());
 
-            Funcionario funcionarioselecionado = (Funcionario)repositorioFuncionario.SelecionarPorId(idfuncionario);
+            Funcionario funcionarioSelecionado = (Funcionario)repositorioFuncionario.SelecionarPorId(idfuncionario);
 
            
             Console.Write("Digite a quantidade do medicamente que deseja pedir: ");
             int quantidade = Convert.ToInt32(Console.ReadLine());
 
-            Requisicaoentrada novaRequisicao = new Requisicaoentrada(medicamentoSelecionado,fornecedorselecionado ,funcionarioselecionado, quantidade);
+            Requisicaoentrada novaRequisicao = new Requisicaoentrada(medicamentoSelecionado,fornecedorSelecionado ,funcionarioSelecionado, quantidade);
 
             return novaRequisicao;
         }
