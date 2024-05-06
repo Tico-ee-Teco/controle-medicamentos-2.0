@@ -4,6 +4,7 @@ using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada;
 
 namespace ControleMedicamentos.ConsoleApp
 {
@@ -46,6 +47,11 @@ namespace ControleMedicamentos.ConsoleApp
             teladofornecedor.repositorio = repositoriofornecedor;
             teladofornecedor.tipoEntidade = "Fornecedor";
 
+            RepositorioRequisicaoEntrada repositorioRequisicaoEntrada = new RepositorioRequisicaoEntrada();
+            TelaRequisicaoEntrada telaRequisicaoEntrada = new TelaRequisicaoEntrada();
+            telaRequisicaoEntrada.repositorio = repositorioRequisicaoEntrada;
+            telaRequisicaoEntrada.tipoEntidade = "Requisiçao entrada";
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -70,6 +76,10 @@ namespace ControleMedicamentos.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = teladofornecedor;
 
+                else if (opcaoPrincipalEscolhida == '6')
+                    tela = telaRequisicaoEntrada;
+
+
                 char operacaoEscolhida = tela.ApresentarMenu();
 
                 if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
@@ -88,6 +98,9 @@ namespace ControleMedicamentos.ConsoleApp
                     tela.VisualizarRegistros(true);
 
                 else if (operacaoEscolhida == '5')
+                    tela.VisualizarRegistros(true);
+
+                else if (operacaoEscolhida == '6')
                     tela.VisualizarRegistros(true);
             }
 

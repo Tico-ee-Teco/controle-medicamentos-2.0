@@ -4,6 +4,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
     internal class TelaMedicamento : TelaBase
     {
+
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)
@@ -52,6 +53,8 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             DateTime dataValidade = Convert.ToDateTime(Console.ReadLine());
 
             Medicamento medicamento = new Medicamento(nome, descricao, lote, dataValidade);
+
+           
 
             return medicamento;
         }
