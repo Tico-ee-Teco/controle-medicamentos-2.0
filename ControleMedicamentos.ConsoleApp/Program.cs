@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Modulo_fornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
@@ -38,7 +39,12 @@ namespace ControleMedicamentos.ConsoleApp
             RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
             TelaFuncionario telaFuncionario = new TelaFuncionario();
             telaFuncionario.repositorio = repositorioFuncionario;
-            telaFuncionario.tipoEntidade = "Funcionario";            
+            telaFuncionario.tipoEntidade = "Funcionario";     
+            
+            Repositoriofornecedor repositoriofornecedor = new Repositoriofornecedor();
+            Teladofornecedor teladofornecedor = new Teladofornecedor();
+            teladofornecedor.repositorio = repositoriofornecedor;
+            teladofornecedor.tipoEntidade = "Fornecedor";
 
             while (true)
             {
@@ -61,6 +67,9 @@ namespace ControleMedicamentos.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaFuncionario;
 
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = teladofornecedor;
+
                 char operacaoEscolhida = tela.ApresentarMenu();
 
                 if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
@@ -76,6 +85,9 @@ namespace ControleMedicamentos.ConsoleApp
                     tela.Excluir();
 
                 else if (operacaoEscolhida == '4')
+                    tela.VisualizarRegistros(true);
+
+                else if (operacaoEscolhida == '5')
                     tela.VisualizarRegistros(true);
             }
 

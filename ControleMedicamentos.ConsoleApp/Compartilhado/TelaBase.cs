@@ -7,6 +7,7 @@
 
         public char ApresentarMenu()
         {
+              
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
@@ -18,8 +19,7 @@
             Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
             Console.WriteLine($"2 - Editar {tipoEntidade}");
             Console.WriteLine($"3 - Excluir {tipoEntidade}");
-            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
-
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");          
             Console.WriteLine("S - Voltar");
 
             Console.WriteLine();
