@@ -56,7 +56,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaosaida
             if (medicamento.Quantidade < Quantidadepedida)
                 return false;
 
-            medicamento.Quantidade -= Quantidadepedida;
+            medicamento.Quantidade += Quantidadepedida;
             return true;
         }
 
